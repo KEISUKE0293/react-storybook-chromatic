@@ -27,12 +27,3 @@ export const MobileSP: Story = {
     },
   },
 };
-
-// タブレットサイズ (iPad)
-export const Tablet: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: "tablet",
-    },
-  },
-};
