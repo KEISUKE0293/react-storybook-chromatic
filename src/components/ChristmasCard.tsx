@@ -20,7 +20,7 @@ export const ChristmasCard = () => {
           .fill(0)
           .map((_, i) => (
             <div key={i} className="snowflake">
-              {i % 2 === 0 ? "❅" : "❆"}
+              ❄️
             </div>
           ))}
       </div>
