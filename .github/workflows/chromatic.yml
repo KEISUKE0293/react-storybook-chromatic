@@ -1,0 +1,24 @@
+# .github/workflows/chromatic.yml
+name: "Chromatic"
+
+on: push
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Chromaticには全履歴が必要です
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      # ここでChromaticにデプロイします
+      - uses: chromaui/action@latest
+        with:
+          # GitHub Secretsに設定したトークンを読み込みます
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
